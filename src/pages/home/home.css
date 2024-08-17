@@ -1,0 +1,14 @@
+.home-container {
+	position: relative;
+	overflow: hidden; /* Hide any overflow from the image */
+}
+
+.background-image {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	width: 100%; /* Cover the container width */
+	height: 100%; /* Cover the container height */
+	object-fit: cover; /* Cover the container while maintaining aspect ratio */
+	transform: translate(-50%, -50%); /* Center the image */
+}

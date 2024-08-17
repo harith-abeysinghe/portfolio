@@ -7,14 +7,13 @@ import { styled } from "@mui/material/styles";
 import "@fontsource/roboto"; // Example: Importing Roboto font
 
 const StyledAppBar = styled(AppBar)({
-	backgroundColor: "#1a1c2c",
+	backgroundColor: "rgba(255, 255, 255, 0)", // Use rgba for transparency
 	boxShadow: "none",
 });
 
 const StyledToolbar = styled(Toolbar)({
 	display: "flex",
 	justifyContent: "space-between",
-	padding: "0 30px",
 });
 
 const LogoTypography = styled(Typography)({
@@ -25,7 +24,6 @@ const LogoTypography = styled(Typography)({
 
 const MenuContainer = styled("div")({
 	display: "flex",
-	gap: "20px",
 });
 
 const MenuButton = styled(Button)({

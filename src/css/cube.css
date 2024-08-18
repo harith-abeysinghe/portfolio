@@ -1,8 +1,14 @@
-/* src/components/Cube.css */
+:root {
+	--cube-size: 150px; /* Adjust size here */
+	--border-color: #0094f6; /* Border color */
+	--font-size: 16px; /* Font size */
+	--translate-z: calc(var(--cube-size) / 2); /* Half the cube size */
+}
+
 .scene {
-	width: 200px;
-	height: 200px;
-	perspective: 600px; /* Adjust perspective for a 3D effect */
+	width: var(--cube-size);
+	height: var(--cube-size);
+	perspective: 600px; /* Perspective for 3D effect */
 	margin: 100px auto; /* Center the cube */
 }
 
@@ -11,41 +17,42 @@
 	height: 100%;
 	position: relative;
 	transform-style: preserve-3d;
-	transform: rotateX(-30deg) rotateY(-45deg);
+	transform: rotateX(-60deg) rotateY(-45deg);
 	animation: rotate 5s infinite linear;
 }
 
 .cube-face {
 	position: absolute;
-	width: 200px;
-	height: 200px;
-	background: rgba(255, 255, 255, 0.8);
-	border: 2px solid #ccc;
+	width: var(--cube-size);
+	height: var(--cube-size);
+	background: #000000;
+	border: 2px solid var(--border-color); /* Apply border color variable */
 	box-sizing: border-box;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 20px;
+	font-size: var(--font-size); /* Apply font size variable */
 	color: #333;
 }
 
+/* Cube face transformations */
 .cube-face-front {
-	transform: translateZ(100px);
+	transform: translateZ(var(--translate-z));
 }
 .cube-face-back {
-	transform: rotateY(180deg) translateZ(100px);
+	transform: rotateY(180deg) translateZ(var(--translate-z));
 }
 .cube-face-left {
-	transform: rotateY(-90deg) translateZ(100px);
+	transform: rotateY(-90deg) translateZ(var(--translate-z));
 }
 .cube-face-right {
-	transform: rotateY(90deg) translateZ(100px);
+	transform: rotateY(90deg) translateZ(var(--translate-z));
 }
 .cube-face-top {
-	transform: rotateX(90deg) translateZ(100px);
+	transform: rotateX(90deg) translateZ(var(--translate-z));
 }
 .cube-face-bottom {
-	transform: rotateX(-90deg) translateZ(100px);
+	transform: rotateX(-90deg) translateZ(var(--translate-z));
 }
 
 @keyframes rotate {

@@ -6,12 +6,12 @@ const Cube: React.FC = () => {
 	return (
 		<div className="scene">
 			<div className="cube">
-				<div className="cube-face cube-face-front">Front</div>
-				<div className="cube-face cube-face-back">Back</div>
-				<div className="cube-face cube-face-left">Left</div>
-				<div className="cube-face cube-face-right">Right</div>
-				<div className="cube-face cube-face-top">Top</div>
-				<div className="cube-face cube-face-bottom">Bottom</div>
+				<div className="cube-face cube-face-front"></div>
+				<div className="cube-face cube-face-back"></div>
+				<div className="cube-face cube-face-left"></div>
+				<div className="cube-face cube-face-right"></div>
+				<div className="cube-face cube-face-top"></div>
+				<div className="cube-face cube-face-bottom"></div>
 			</div>
 		</div>
 	);

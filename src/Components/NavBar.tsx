@@ -30,6 +30,7 @@ const MenuButton = styled(Button)({
 	fontFamily: "Roboto, sans-serif", // Apply the font to buttons
 	color: "#fff",
 	textTransform: "none", // Ensure text remains in its original case
+	fontSize: "1.1rem",
 	"&:hover": {
 		color: "#d18ce6",
 	},
@@ -39,7 +40,7 @@ const NavBar: React.FC = () => {
 	return (
 		<StyledAppBar position="static">
 			<StyledToolbar>
-				<LogoTypography variant="h6">Harith A.</LogoTypography>
+				<LogoTypography variant="h5">Harith A.</LogoTypography>
 				<MenuContainer>
 					<MenuButton>#home</MenuButton>
 					<MenuButton>#expertise</MenuButton>

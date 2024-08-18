@@ -1,14 +1,68 @@
 .home-container {
 	position: relative;
 	overflow: hidden; /* Hide any overflow from the image */
+	width: 100vw; /* Make sure container spans the entire viewport width */
+	height: 100vh; /* Make sure container spans the entire viewport height */
+}
+
+.home-nav {
+	position: relative; /* Ensure the navbar is positioned relative to its normal flow */
+	z-index: 4; /* Higher z-index to display above the cube and background */
 }
 
 .background-image {
-	position: relative;
-	top: 50%;
-	left: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%; /* Cover the container width */
 	height: 100%; /* Cover the container height */
 	object-fit: cover; /* Cover the container while maintaining aspect ratio */
-	transform: translate(-50%, -50%); /* Center the image */
+	z-index: 1; /* Place the background image behind other content */
+	animation: filterAnimation 10s infinite linear;
+}
+
+@keyframes filterAnimation {
+	0% {
+		filter: hue-rotate(0deg) brightness(1) contrast(1) saturate(1);
+	}
+	50% {
+		filter: hue-rotate(180deg) brightness(0.8) contrast(1.2) saturate(1.5);
+	}
+	100% {
+		filter: hue-rotate(360deg) brightness(1) contrast(1) saturate(1);
+	}
+}
+
+.cube-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* Center the cube */
+	z-index: 2; /* Place the cube above the background image */
+}
+
+.text-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 4;
+	color: #ffffffc7; /* Adjust color if needed for better visibility */
+	text-align: center;
+}
+
+.text-container h1 {
+	font-family: "Playfair Display", serif;
+	font-size: 4rem; /* Increased size */
+	font-weight: 700;
+	margin: 0;
+	letter-spacing: 1.5px; /* Slightly increased letter-spacing */
+	text-shadow: 0 0 10px rgba(21, 247, 255, 0.81); /* Cyan glow effect */
+}
+
+.text-container p {
+	font-family: "Lato", sans-serif;
+	font-size: 1.5rem; /* Increased size */
+	margin-top: 0.5rem;
+	color: #ddd; /* Adjust color for better contrast */
 }

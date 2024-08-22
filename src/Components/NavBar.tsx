@@ -1,52 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
-import "@fontsource/roboto"; // Example: Importing Roboto font
+import "@fontsource/roboto";
 
 const StyledAppBar = styled(AppBar)({
-	backgroundColor: "rgba(255, 255, 255, 0)", // Use rgba for transparency
+	position: "relative",
+	backgroundColor: "rgba(0, 0, 0, 0.3)",
+	backdropFilter: "blur(10px)",
 	boxShadow: "none",
+	overflow: "hidden",
 });
 
 const StyledToolbar = styled(Toolbar)({
 	display: "flex",
-	justifyContent: "space-between",
-});
-
-const LogoTypography = styled(Typography)({
-	fontFamily: "Roboto, sans-serif", // Use your selected font
-	color: "#6be0f1",
-	textTransform: "capitalize", // To capitalize first letters
+	justifyContent: "center", // Center the contents horizontally
 });
 
 const MenuContainer = styled("div")({
 	display: "flex",
+	justifyContent: "center", // Center the menu items horizontally
+	width: "100%", // Ensure the container takes up full width
 });
 
-const MenuButton = styled(Button)({
-	fontFamily: "Roboto, sans-serif", // Apply the font to buttons
-	color: "#fff",
-	textTransform: "none", // Ensure text remains in its original case
+const MenuButton = styled(Button)(({ isHovered }: { isHovered: boolean }) => ({
+	fontFamily: "Roboto, sans-serif",
+	color: "#fff", // Default color is white
+	textTransform: "none",
 	fontSize: "1.1rem",
+	opacity: isHovered ? 1 : 0.5, // If hovered, full opacity; otherwise, less visible
+	transition: "opacity 0.3s ease",
 	"&:hover": {
-		color: "#d18ce6",
+		color: "#fff", // Ensure hovered button stays white
+		opacity: 1, // Ensure hovered button is fully opaque
 	},
-});
+}));
 
 const NavBar: React.FC = () => {
+	const [hoveredButton, setHoveredButton] = useState<string | null>(null);
+
 	return (
-		<StyledAppBar position="static">
+		<StyledAppBar>
 			<StyledToolbar>
-				<LogoTypography variant="h5">Harith A.</LogoTypography>
 				<MenuContainer>
-					<MenuButton>#home</MenuButton>
-					<MenuButton>#expertise</MenuButton>
-					<MenuButton>#work</MenuButton>
-					<MenuButton>#experience</MenuButton>
-					<MenuButton>#contact</MenuButton>
+					{["#home", "#expertise", "#work", "#experience", "#contact"].map(
+						(text) => (
+							<MenuButton
+								key={text}
+								onMouseEnter={() => setHoveredButton(text)}
+								onMouseLeave={() => setHoveredButton(null)}
+								isHovered={hoveredButton === text}
+							>
+								{text}
+							</MenuButton>
+						)
+					)}
 				</MenuContainer>
 			</StyledToolbar>
 		</StyledAppBar>

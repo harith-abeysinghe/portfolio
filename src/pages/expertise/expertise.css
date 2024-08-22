@@ -1,0 +1,45 @@
+.container {
+	background-color: #0e0d0d;
+	color: white;
+	text-align: center;
+	padding: 20px 0;
+	width: 100vw; /* Make sure container spans the entire viewport width */
+}
+
+.title {
+	font-size: 3rem;
+	margin-bottom: 50px;
+}
+
+.expertise-section {
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+}
+
+.expertise-card {
+	background-color: #2a2a2a;
+	padding: 20px;
+	border-radius: 10px;
+	width: 300px;
+}
+
+.icon {
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.card-title {
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+}
+
+.card-title span {
+	color: #ff4081; /* Highlight color */
+}
+
+.card-text {
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #b0b0b0;
+}

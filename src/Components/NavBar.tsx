@@ -44,18 +44,22 @@ const NavBar: React.FC = () => {
 		<StyledAppBar>
 			<StyledToolbar>
 				<MenuContainer>
-					{["#home", "#expertise", "#work", "#experience", "#contact"].map(
-						(text) => (
-							<MenuButton
-								key={text}
-								onMouseEnter={() => setHoveredButton(text)}
-								onMouseLeave={() => setHoveredButton(null)}
-								isHovered={hoveredButton === text}
-							>
-								{text}
-							</MenuButton>
-						)
-					)}
+					{[
+						{ text: "#home", href: "#home" },
+						{ text: "#expertise", href: "#expertise" },
+						{ text: "#work", href: "#work" },
+						// Add more sections as needed
+					].map((item) => (
+						<MenuButton
+							key={item.text}
+							href={item.href}
+							onMouseEnter={() => setHoveredButton(item.href)}
+							onMouseLeave={() => setHoveredButton(null)}
+							isHovered={hoveredButton === item.href}
+						>
+							{item.text}
+						</MenuButton>
+					))}
 				</MenuContainer>
 			</StyledToolbar>
 		</StyledAppBar>

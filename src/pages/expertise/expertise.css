@@ -1,5 +1,5 @@
 .container {
-	background-color: #0e0d0d;
+	background-color: #0a0a0ae0;
 	color: white;
 	text-align: center;
 	padding: 20px 0;
@@ -9,37 +9,78 @@
 .title {
 	font-size: 3rem;
 	margin-bottom: 50px;
+	color: #dadada; /* Cyan color for title */
 }
 
 .expertise-section {
 	display: flex;
 	justify-content: center;
 	gap: 30px;
+	flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
 .expertise-card {
-	background-color: #2a2a2a;
+	background-color: #121212;
 	padding: 20px;
 	border-radius: 10px;
 	width: 300px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+	transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+	position: relative; /* Required for pseudo-element positioning */
+	overflow: hidden; /* Ensures no overflow of the pseudo-element */
+}
+
+.expertise-card:hover {
+	transform: translateY(-5px); /* Slight lift on hover */
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.expertise-card:hover .card-title span,
+.expertise-card:hover .highlight,
+.expertise-card:hover .icon {
+	animation: colorChange 4s infinite; /* Slower animation */
 }
 
 .icon {
 	font-size: 2rem;
 	margin-bottom: 20px;
+	color: rgba(21, 247, 255, 0.81); /* Cyan color for icons */
 }
 
 .card-title {
 	font-size: 1.5rem;
 	margin-bottom: 10px;
+	color: #ffffff; /* Cyan color for card title */
 }
 
 .card-title span {
-	color: #ff4081; /* Highlight color */
+	color: rgba(21, 247, 255, 0.81); /* Highlight color for card title */
 }
 
 .card-text {
 	font-size: 1rem;
 	line-height: 1.5;
 	color: #b0b0b0;
+	text-align: center;
+}
+
+.card-text p {
+	margin-bottom: 15px; /* Space between paragraphs */
+}
+
+.highlight {
+	color: rgba(21, 247, 255, 0.81); /* Cyan color for highlighted technologies */
+	font-weight: bold; /* Optional: make the highlighted text bold */
+}
+
+@keyframes colorChange {
+	0% {
+		color: rgba(21, 247, 255, 0.81); /* Initial cyan color */
+	}
+	50% {
+		color: rgba(21, 255, 122, 0.801); /* Alternate color */
+	}
+	100% {
+		color: rgba(21, 247, 255, 0.81); /* Return to initial color */
+	}
 }

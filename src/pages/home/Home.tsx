@@ -7,7 +7,7 @@ import "./home.css";
 const Home: React.FC = () => {
 	return (
 		<>
-			<div className="home-container">
+			<div className="home-container" id="home">
 				{/* Matrix Rain Background */}
 				<MatrixRain />
 
